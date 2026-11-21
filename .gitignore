@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv*/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+
+# footage never belongs in the repo
+*.OSV
+*.osv
+*.LRF
+*.mp4
+*.mov
+*.MP4
+*.MOV

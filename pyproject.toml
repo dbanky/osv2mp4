@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "osv2mp4"
+dynamic = ["version"]
+description = "Convert DJI Osmo 360 .OSV files into equirectangular 360 MP4, without DJI Studio"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Daniel Banky" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "opencv-python-headless",
+]
+
+[project.optional-dependencies]
+# GPU stitch and rotation (Metal on Apple Silicon, CUDA elsewhere)
+gpu = ["torch>=2.7"]
+dev = ["pytest"]
+
+[project.scripts]
+osv2mp4 = "osv2mp4.cli:main"
+
+[tool.hatch.version]
+path = "src/osv2mp4/__init__.py"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
